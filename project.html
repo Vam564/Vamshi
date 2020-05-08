@@ -1,0 +1,174 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+</head>
+
+<body class="body">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div id="checkbox_div">
+    <label><input type="checkbox" value="showroom sales" onchange="filterItems()">showroom sales</label><br>
+    <label><input type="checkbox" value="Service Center" onchange="filterItems()">Service Centre</label><br>
+    <label><input type="checkbox" value="Quick Service" onchange="filterItems()">Quick Service</label><br>
+    <label><input type="checkbox" value="Spare Parts" onchange="filterItems()">Spare Parts</label>
+</div>
+
+<ol id="container"></ol>
+    <script >
+    const arr = 
+  [
+{
+  "showroomname": "karama",
+  "showroomphone" : "920023345",
+  "showroomdistance" : "4m",
+  "showroomservices": ["Showroom Sales", "Spare Parts", "Quick Service" ],
+  "showroomemail" : "info@hafiz.com",
+  "showroomdirection" : "https://www.google.com/maps/dir//21.368971,39.801534",
+  "statename" : "Dubai"
+},
+{
+  "showroomname": "financial center",
+  "showroomphone" : "920023345",
+  "showroomdistance" : "44.3 m",
+  "showroomservices": ["Showroom Sales", "Service Centre", "Spare Parts" ],
+  "showroomemail" : "info@hafiz.com",
+  "showroomdirection" : "https://www.google.com/maps/dir//21.368971,39.801534",
+  "statename" : "Dubai"
+},
+{
+  "showroomname": "downtown",
+  "showroomphone" : "920023345",
+  "showroomdistance" : "213.6 m",
+  "showroomservices": ["Showroom Sales", "Service Centre", "Spare Parts", "Quick Service" ],
+  "showroomemail" : "info@hafiz.com",
+  "showroomdirection" : "https://www.google.com/maps/dir//21.368971,39.801534",
+  "statename" : "Dubai"
+},
+{
+  "showroomname": "jumierah",
+  "showroomphone" : "920023345",
+  "showroomdistance" : "100 m",
+  "showroomservices": ["Service Centre", "Spare Parts", "Quick Service" ],
+  "showroomemail" : "info@hafiz.com",
+  "showroomdirection" : "https://www.google.com/maps/dir//21.368971,39.801534",
+  "statename" : "Dubai"
+},
+{
+  "showroomname": "Al Qouz",
+  "showroomphone" : "920023345",
+  "showroomdistance" : "213.6 m",
+  "showroomservices": ["Showroom Sales", "Service Centre", "Quick Service" ],
+  "showroomemail" : "info@hafiz.com",
+  "showroomdirection" : "https://www.google.com/maps/dir//21.368971,39.801534",
+  "statename" : "Dubai"
+},
+{
+  "showroomname": "Al Barsha",
+  "showroomphone" : "920023345",
+  "showroomdistance" : "213.6 m",
+  "showroomservices": ["Showroom Sales", "Spare Parts", "Quick Service" ],
+  "showroomemail" : "info@hafiz.com",
+  "showroomdirection" : "https://www.google.com/maps/dir//21.368971,39.801534",
+  "statename" : "Dubai"
+},
+{
+  "showroomname": "Al Masaood Automobiles - Nissan, Infiniti Showroom",
+  "showroomphone" : "920023345",
+  "showroomdistance" : "44.3 m",
+  "showroomservices": ["Showroom Sales", "Service Centre", "Spare Parts" ],
+  "showroomemail" : "info@hafiz.com",
+  "showroomdirection" : "https://www.google.com/maps/dir//21.368971,39.801534",
+  "statename" : "Abu Dhabi"
+},
+{
+  "showroomname": "FLEET SHOWROOM",
+  "showroomphone" : "920023345",
+  "showroomdistance" : "213.6 m",
+  "showroomservices": ["Showroom Sales", "Service Centre", "Spare Parts", "Quick Service" ],
+  "showroomemail" : "info@hafiz.com",
+  "showroomdirection" : "https://www.google.com/maps/dir//21.368971,39.801534",
+  "statename" : "Abu Dhabi"
+},
+{
+  "showroomname": "INFINITI",
+  "showroomphone" : "920023345",
+  "showroomdistance" : "100 m",
+  "showroomservices": ["Service Centre", "Spare Parts", "Quick Service" ],
+  "showroomemail" : "info@hafiz.com",
+  "showroomdirection" : "https://www.google.com/maps/dir//21.368971,39.801534",
+  "statename" : "Abu Dhabi"
+},
+{
+  "showroomname": "Ford Showroom",
+  "showroomphone" : "920023345",
+  "showroomdistance" : "213.6 m",
+  "showroomservices": ["Showroom Sales", "Service Centre", "Quick Service" ],
+  "showroomemail" : "info@hafiz.com",
+  "showroomdirection" : "https://www.google.com/maps/dir//21.368971,39.801534",
+  "statename" : "Abu Dhabi"
+},
+{
+  "showroomname": "Al Habtoor Motors Royal Car",
+  "showroomphone" : "920023345",
+  "showroomdistance" : "213.6 m",
+  "showroomservices": ["Showroom Sales", "Spare Parts",  ],
+  "showroomemail" : "info@hafiz.com",
+  "showroomdirection" : "https://www.google.com/maps/dir//21.368971,39.801534",
+  "statename" : "Abu Dhabi"
+}];
+
+
+ $('#checkbox_div input').on('change', function(){
+     var serv_val = $(this).val().toLowerCase();
+ 		const filteredValues = arr.filter(el => {
+ 			return el.showroomservices.map(elem => elem.toLowerCase()).indexOf(serv_val) !== -1;
+ 		});
+ 		console.log(filteredValues);
+          filteredValues.forEach(function(obj) { 
+            $("ol").append("<li>" + obj.showroomservices.join(', ') + "</li>");
+        });
+        
+ });
+function filterItems()
+{
+    var value=document.
+}
+
+$('checkbox_div input').on('click',(function(){
+    alert("yes")
+    var serv_val = $(this).val();
+    $.getJSON( "petromin.json", function(data) { 
+
+const filteredValues = data.filter(el => {
+                return el.showroomservices.map(elem => elem.toLowerCase()).indexOf(serv_val) !== -1;
+            });
+            console.log(filteredValues);
+
+
+       
+
+    });
+}));</script>
+</body>
+
+</html>
